@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7be098532ded0d02d54b0d010ee6ba21",
+    "content-hash": "75cdac5aeb1d7ad6c2a16240d7b3cbcc",
     "packages": [
         {
             "name": "brick/math",
@@ -715,11 +715,17 @@
         },
         {
             "name": "fuzzy/fzpkg",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.fuzzy-net.it:d.viviani/fzpkg.git",
-                "reference": "cd5fd0329d440076b1a57798a8b93a185bef59b1"
+                "url": "https://github.com/username-notavailable/fzpgk.git",
+                "reference": "896e9c5fac8c47f594fb16a6f1e1f91cf238cad7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/username-notavailable/fzpgk/zipball/896e9c5fac8c47f594fb16a6f1e1f91cf238cad7",
+                "reference": "896e9c5fac8c47f594fb16a6f1e1f91cf238cad7",
+                "shasum": ""
             },
             "require": {
                 "cebe/php-openapi": "^1.7",
@@ -728,7 +734,6 @@
                 "nyholm/psr7": "^1.8",
                 "php": "^8.2"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -743,6 +748,7 @@
                     "Fuzzy\\Fzpkg\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -753,7 +759,11 @@
                 }
             ],
             "description": "Libreria di utilità",
-            "time": "2025-05-02T02:02:33+00:00"
+            "support": {
+                "issues": "https://github.com/username-notavailable/fzpgk/issues",
+                "source": "https://github.com/username-notavailable/fzpgk/tree/v1.0.0"
+            },
+            "time": "2025-05-03T15:36:38+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -8954,9 +8964,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "fuzzy/fzpkg": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -9,7 +9,7 @@ var themesInputsDefinitions = {
         'resources/js/app.js',
         'resources/js/login.js',
         'resources/js/dashboard.js'
-    ],
+    ]/*,
     'default2': [
         'resources/sass/app.scss', 
         'resources/js/app.js',
@@ -20,7 +20,7 @@ var themesInputsDefinitions = {
         'resources/js/app.js',
         'resources/js/login.js',
         'resources/js/dashboard.js'
-    ]
+    ]*/
 }
 
 var currentTheme = process.env.FZ_SELECTED_THEME;

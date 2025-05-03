@@ -50,7 +50,8 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "npm install"
+            "npm install",
+            "@php artisan fz:run:theme:cmd --build"
         ]
     },
     "extra": {

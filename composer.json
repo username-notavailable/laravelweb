@@ -51,6 +51,7 @@
             "@php artisan migrate --graceful --ansi",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "npm install",
+            "node_modules/.bin/ncu",
             "@php artisan fz:run:theme:cmd --build"
         ]
     },

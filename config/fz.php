@@ -140,8 +140,7 @@ return [
                     'url' => env('FZ_DEFAULT_SWEETAPI_EXT_DOC_URL', ''),
                     'description' => env('FZ_DEFAULT_SWEETAPI_EXT_DESCRIPTION', '')
                 ]
-            ],
-            'repleceSwaggerJsonIfExists' => env('FZ_DEFAULT_SWAGGER_REPLACE_JSON_IF_EXISTS', false)
+            ]
         ]
     ]
 ];

@@ -12,7 +12,7 @@
             </h2>
             <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <pre>{{ json_encode($sessionData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
+                    <pre>{{ json_encode($sessionData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</pre>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
             </h2>
             <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <pre>{{ json_encode($userToken, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
+                    <pre>{{ json_encode($userToken, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</pre>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
             </h2>
             <div id="panelsStayOpen-collapse3" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <pre>{{ json_encode($decodedUserAccessToken, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
+                    <pre>{{ json_encode($decodedUserAccessToken, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</pre>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
             </h2>
             <div id="panelsStayOpen-collapse6" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <pre>{{ json_encode($userTokenProfile, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
+                    <pre>{{ json_encode($userTokenProfile, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</pre>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
             </h2>
             <div id="panelsStayOpen-collapse7" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <pre>{{ json_encode($userTokenProfileId, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
+                    <pre>{{ json_encode($userTokenProfileId, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</pre>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
             </h2>
             <div id="panelsStayOpen-collapse4" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <pre>{{ json_encode($clientToken, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
+                    <pre>{{ json_encode($clientToken, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</pre>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
             </h2>
             <div id="panelsStayOpen-collapse5" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <pre>{{ json_encode($decodedClientAccessToken, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
+                    <pre>{{ json_encode($decodedClientAccessToken, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</pre>
                 </div>
             </div>
         </div>

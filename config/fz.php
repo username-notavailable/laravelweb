@@ -90,19 +90,19 @@ return [
         ],
     ],
     'log' => [
-        'testLogEnabled' => env('FZ_LOG_TEST_LOG_ENABLED', true),
+        'testLogEnabled' => env('FZ_LOG_TEST_LOG_ENABLED', false),
         'sql' => env('FZ_LOG_SQL', false),
         'login' => [
             'success' => [
-                'request' => env('FZ_LOG_LOGIN_SUCCESS_REQUEST', true),
+                'request' => env('FZ_LOG_LOGIN_SUCCESS_REQUEST', false),
                 'level' => env('FZ_LOG_LOGIN_SUCCESS_LEVEL', 'debug'),
             ],
             'fail' => [
-                'request' => env('FZ_LOG_LOGIN_FAIL_REQUEST', true),
+                'request' => env('FZ_LOG_LOGIN_FAIL_REQUEST', false),
                 'level' => env('FZ_LOG_LOGIN_FAIL_LEVEL', 'debug'),
             ],
             'lockout' => [
-                'request' => env('FZ_LOG_LOGIN_LOCKOUT_REQUEST', true),
+                'request' => env('FZ_LOG_LOGIN_LOCKOUT_REQUEST', false),
                 'level' => env('FZ_LOG_LOGIN_LOCKOUT_LEVEL', 'debug'),
             ],
             'maxAttempts' => env('FZ_LOG_LOGIN_MAX_ATTEMPTS', 5),
@@ -110,7 +110,7 @@ return [
         ]
     ],
     'default' => [
-        'locale' => env('FZ_DEFAULT_LOCALE', 'it_IT'),
+        'locale' => env('FZ_DEFAULT_LOCALE', 'en_US'),
         'localeCookieName' => env('FZ_DEFAULT_LOCALE_COOKIE_NAME', '__fz_lcl__'),
         'themeCookieName' => env('FZ_DEFAULT_THEME_COOKIE_NAME', '__fz_thm__'),
         'ui' => [
@@ -141,8 +141,7 @@ return [
                     'description' => env('FZ_DEFAULT_SWEETAPI_EXT_DESCRIPTION', '')
                 ]
             ],
-            'repleceJsonIfExists' => env('FZ_DEFAULT_SWAGGER_REPLACE_JSON_IF_EXISTS', false),
-            'jsonFilePath' => env('FZ_DEFAULT_SWAGGER_JSON_FILE_PATH', 'sweetapi/swagger.json')
+            'repleceSwaggerJsonIfExists' => env('FZ_DEFAULT_SWAGGER_REPLACE_JSON_IF_EXISTS', false)
         ]
     ]
 ];

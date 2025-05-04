@@ -62,16 +62,6 @@ function showToast(type, message) {
     }, 5000);
 }
 
-function saveScrollTop() {
-    document.body.setAttribute('data-scroll-y', document.scrollingElement.scrollTop - 150);
-}
-
-function unsetSavedScrollTop() {
-    if (document.body.hasAttribute('data-scroll-y')) {
-        document.body.removeAttribute('data-scroll-y');
-    }
-}
-
 function addCustomEventListener(selector, event, handler, rootSelector = 'body') {
     let rootElement = document.querySelector(rootSelector);
     //since the root element is set to be body for our current dealings
@@ -92,8 +82,8 @@ function addCustomEventListener(selector, event, handler, rootSelector = 'body')
 }
 
 function serializeFormData(form) {
-    var formData = new FormData(form);
-    var serializedData = {};
+    let formData = new FormData(form);
+    let serializedData = {};
   
     for (var [name, value] of formData) {
         if (serializedData[name]) {

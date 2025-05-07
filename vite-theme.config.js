@@ -91,7 +91,7 @@ function AdjustManifestPlugin() {
 
 console.log(`
 
-########## Selected theme "${currentTheme}" ##########
+########## SELECTED THEME = "${currentTheme}" ##########
 
 `);
 
@@ -111,7 +111,7 @@ export default defineConfig({
         outDir: 'public/' + currentTheme
     },
     server: {
-        host: 'localhost',
+        host: '127.0.0.1',
         port: 8989,
         cors: true
         /*fs: {

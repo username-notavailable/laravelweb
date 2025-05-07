@@ -15,7 +15,7 @@ apt-get install -y iputils-ping; \
 apt-get install -y bind9-dnsutils; \
 apt-get install -y supervisor; \
 apt-get install -y procps; \
-apt-get install -y jq;
+apt-get install -y jq; \
 install-php-extensions pdo_pgsql intl opcache; \
 docker-php-ext-enable pdo_pgsql; \
 docker-php-ext-enable intl; \

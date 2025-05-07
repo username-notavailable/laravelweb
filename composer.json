@@ -47,9 +47,9 @@
             "@php -r \"system(PHP_BINARY . ' ./../../console replace:castle:name --quiet ${CASTLE_NAME} .env');\"",
             "@php -r \"system(PHP_BINARY . ' ./../../console replace:castle:name --quiet ${CASTLE_NAME} _docker/dev/.env');\"",
             "@php -r \"system(PHP_BINARY . ' ./../../console replace:castle:name --quiet ${CASTLE_NAME} _docker/dev/compose.yaml');\"",
-            "@php -r \"system(PHP_BINARY . ' ./../../console replace:castle:host:port --quiet ${CASTLE_PORT} .env');\"",
-            "@php -r \"system(PHP_BINARY . ' ./../../console replace:castle:host:port --quiet ${CASTLE_PORT} _docker/dev/.env');\"",
-            "@php -r \"system(PHP_BINARY . ' ./../../console replace:castle:host:port --quiet ${CASTLE_PORT} _docker/dev/compose.yaml');\""
+            "@php -r \"system(PHP_BINARY . ' ./../../console replace:castle:host:port --quiet ${CASTLE_NAME} ${CASTLE_PORT} .env');\"",
+            "@php -r \"system(PHP_BINARY . ' ./../../console replace:castle:host:port --quiet ${CASTLE_NAME} ${CASTLE_PORT} _docker/dev/.env');\"",
+            "@php -r \"system(PHP_BINARY . ' ./../../console replace:castle:host:port --quiet ${CASTLE_NAME} ${CASTLE_PORT} _docker/dev/compose.yaml');\""
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",

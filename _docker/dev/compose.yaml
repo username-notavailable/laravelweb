@@ -4,11 +4,16 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ${FZKC_PROJECT_NAME}-${FZKC_CASTLE_NAME}-castle-container
+    env_file:
+      - ./../../../../docker/dev/.env
+      - ./.env
     environment:
-        OCTANE_HOST: "${OCTANE_HOST}"
-        OCTANE_PORT: ${OCTANE_PORT}
-        OCTANE_WATCH: "${OCTANE_WATCH}"
+      COMPOSE_PROJECT_NAME: ${COMPOSE_PROJECT_NAME}
+      FZKC_PROJECT_NAME: ${FZKC_PROJECT_NAME}
+      FZKC_CASTLE_NAME: ${FZKC_CASTLE_NAME}
     hostname: ${FZKC_CASTLE_NAME}.${FZKC_PROJECT_NAME}.space
+    dns:
+      - ${FZKC_NETWORK_DNS_IP}
     restart: always
     volumes:
       - ./../../.:/app
@@ -25,4 +30,12 @@ services:
     # N.B. Instead of add extra_hosts or similar, add the entries inside the coredns dbs
     #extra_hosts:
     #  - ""
+
+networks:
+  fzkc-net01:
+    ipam:
+      driver: default
+      config:
+        - subnet: ${FZKC_NETWORK}
+          gateway: ${FZKC_NETWORK_GATEWAY}
   

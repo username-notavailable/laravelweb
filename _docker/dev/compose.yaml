@@ -1,22 +1,22 @@
 services:
-  {%% CASTLE_NAME %%}:
+  castle:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ${CASTLE_NAME_INTO_CONTAINER_NAME}_container
+    container_name: ${FZKC_PROJECT_NAME}-${FZKC_CASTLE_NAME}-castle-container
     environment:
         OCTANE_HOST: "${OCTANE_HOST}"
         OCTANE_PORT: ${OCTANE_PORT}
         OCTANE_WATCH: "${OCTANE_WATCH}"
-    hostname: ${CASTLE_NAME}.castle.space
+    hostname: ${FZKC_CASTLE_NAME}.${FZKC_PROJECT_NAME}.space
     restart: always
     volumes:
       - ./../../.:/app
     ports:
-      - "${HOST_PORT}:${OCTANE_PORT}"
+      - "${FZKC_CASTLE_PORT}:${OCTANE_PORT}"
     networks:
-      - fzkc_dev_net01
-    #  fzkc_dev_net01:
+      - fzkc-net01
+    #  fzkc-net01:
     #    ipv4_address: 
     #
     # you must add a DNS entry into /etc/hosts (with "127.0.0.1" as ip address) for the resolution of the containers services's hostname 
@@ -25,12 +25,4 @@ services:
     # N.B. Instead of add extra_hosts or similar, add the entries inside the coredns dbs
     #extra_hosts:
     #  - ""
-
-networks:
-  fzkc_dev_net01:
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.28.22.0/24
-          gateway: 172.28.22.1
   

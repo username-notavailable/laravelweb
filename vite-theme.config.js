@@ -97,7 +97,6 @@ console.log(`
 
 export default defineConfig({
     root: rootPath,
-    //base: 'resources/' + currentTheme,
     plugins: [
         laravel({
             input: rootInputs,
@@ -114,30 +113,5 @@ export default defineConfig({
         host: '127.0.0.1',
         port: 8989,
         cors: true
-        /*fs: {
-            // Allow serving files from one level up to the project root
-            allow: ['../..'],
-        },*/
-        /*base: './',
-        proxy: {
-            '^/resources/.*': {
-                target: 'http://backend.external.space/',
-                changeOrigin: true,
-                rewrite: (xPath) => '/resources/js/login.js',
-                secure: false,      
-                ws: true,
-                configure: (proxy, _options) => {
-                    proxy.on('error', (err, _req, _res) => {
-                        console.log('proxy error', err);
-                    });
-                    proxy.on('proxyReq', (proxyReq, req, _res) => {
-                        console.log('Sending Request to the Target:', req.method, req.url);
-                    });
-                    proxy.on('proxyRes', (proxyRes, req, _res) => {
-                        console.log('Received Response from the Target:', proxyRes.statusCode, req.url);
-                    });
-                },
-            }
-        }*/
     } 
 });

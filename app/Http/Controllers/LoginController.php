@@ -130,7 +130,7 @@ class LoginController extends Controller
                     }
                 }
     
-                $logoutUrl = (new Client($clientIdx))->getRealmEndSessioEndpointUrl($idToken, route('fz_end_user_session_callback'));
+                $logoutUrl = (Client::create($clientIdx))->getRealmEndSessioEndpointUrl($idToken, route('fz_end_user_session_callback'));
                     
                 if (is_null($logoutUrl)) {
                     Log::debug(__METHOD__ . ': logout url non valido "null"');

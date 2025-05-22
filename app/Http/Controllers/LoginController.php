@@ -31,7 +31,14 @@ class LoginController extends Controller
                 }
             }
             else {
-                return view(config('fz.keycloak.login.loginViewName'), ['title' => __('Login')]);
+                return view(config('fz.keycloak.login.loginViewName'), [
+                    'viewContext' => [
+                        'PAGE-LAYOUT' => [],
+                        'MAIN-LAYOUT' => [
+                            'title' => __('Login')
+                        ]
+                    ]
+                ]);
             }
         } catch(\Throwable $e) {
             Log::error(__METHOD__ . ': ' . $e->getMessage());

@@ -14,4 +14,4 @@ function init(event) {
     document.dispatchEvent(new Event('show-main-slot'));
 }
 
-window.initJsPage = init;
+window.initJsApp = init;

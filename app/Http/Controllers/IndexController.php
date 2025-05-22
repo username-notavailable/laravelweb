@@ -28,7 +28,14 @@ class IndexController extends Controller
         $decodedClientAccessToken = $this->kcClient->decodeAccessToken($clientToken['access_token']);
 
         return view('dashboard', [
-            'title' => __('Dashboard'),
+            'viewContext' => [
+                'PAGE-LAYOUT' => [
+                    'dashboardSubTitle' => __('Dati dei token e della sessione'),
+                ],
+                'MAIN-LAYOUT' => [
+                    'title' => __('Dashboard')
+                ]
+            ],
             'userToken' => $userToken,
             'userTokenProfile' => $userTokenProfile,
             'userTokenProfileId' => $userTokenProfileId,

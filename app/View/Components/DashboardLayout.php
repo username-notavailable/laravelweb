@@ -2,25 +2,30 @@
 
 namespace App\View\Components;
 
-use Closure;
-use Fuzzy\Fzpkg\Traits\JsonObjectTrait;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Fuzzy\Fzpkg\Traits\JsonObjectTrait;
+use Closure;
+use Illuminate\Contracts\View\View;
+use Fuzzy\Fzpkg\Traits\ViewContextTrait;
 
 class DashboardLayout extends Component
 {
     use JsonObjectTrait;
+    use ViewContextTrait;
+
+    public string $dashboardTitle = '';
+    public string $dashboardSubTitle = '';
+    public array $breadcrumbLinks = [];
 
     /**
      * Create a new component instance.
      */
-    public function __construct(
-        public string $dashboardTitle = 'Dashboard',
-        public string $dashboardSubTitle = '',
-        public string $title = '',
-        public array $breadcrumbLinks = []
-    )
-    {}
+    public function __construct(array $viewContext = [])
+    {
+        $this->dashboardTitle = __('Dashboard');
+
+        $this->initFromViewContext($viewContext, 'PAGE-LAYOUT');
+    }
 
     /**
      * Get the view / contents that represent the component.

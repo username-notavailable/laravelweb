@@ -1,8 +1,4 @@
-@php
-    $title = 'Dashboard';
-@endphp
-
-<x-dashboard-layout :title=$title>
+<x-dashboard-layout :$viewContext>
     <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header">

@@ -13,13 +13,14 @@ window.htmx = htmx;
 import Cookies from 'js-cookie';
 window.Cookies = Cookies;
 
-
 import.meta.glob([
     '../assets/**',
 ]);
 
-import utils from './utils';
-window.utils = utils;
+import fz_utils from './fz_utils';
+window.fz = {
+    utils: fz_utils
+}
 
 import Alpine from 'alpinejs'
  

@@ -1,4 +1,4 @@
-<x-main-layout :use-loading-wait-spinner=false :title=$title>
+<x-main-layout :$viewContext>
     <div hx-get="{{ htmx_link_url('NavBar', 'getNavBar') }}" hx-trigger="load" hx-swap="outerHTML">
         <x-commons.spinner class="d-flex justify-content-center htmx-indicator" />
     </div>

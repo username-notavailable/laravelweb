@@ -1,4 +1,4 @@
-<x-main-layout :use-loading-wait-spinner=false :include-sizer=false :include-toast-container=false>
+<x-main-layout :viewContext=$viewContext>
     <x-slot:pageInlineCss>
         <style>
             /*html, body {

@@ -59,7 +59,7 @@
             "@php artisan migrate --graceful --ansi",
             "npm install",
             "node_modules/.bin/ncu",
-            "@php artisan fz:run:theme:cmd --build"
+            "@php artisan theme:run:cmd build"
         ]
     },
     "extra": {

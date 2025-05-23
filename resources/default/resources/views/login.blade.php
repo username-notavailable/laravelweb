@@ -1,4 +1,4 @@
-<x-main-layout :viewContext=$viewContext>
+<x-main-layout :$viewContext>
     <x-slot:pageInlineCss>
         <style>
             /*html, body {

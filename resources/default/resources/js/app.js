@@ -43,7 +43,13 @@ function showToast(type, message) {
         `;
     }
 
-    let randomId = Math.floor(Math.random() * 1000);
+    let randomId = null;
+    
+    do {
+        randomId = Math.floor(Math.random() * 1000);
+    }
+    while(document.getElementById('message-toast-' + randomId) !== null);
+
     let toast = `
         <div id="message-toast-${randomId}" class="toast fade align-items-center ${toastBg} border-0" data-bs-autohide="false" role="alert" aria-live="assertive">
             <div class="d-flex">

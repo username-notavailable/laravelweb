@@ -6,23 +6,25 @@ use Closure;
 use Fuzzy\Fzpkg\Traits\JsonObjectTrait;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Illuminate\Http\Request;
+use Fuzzy\Fzpkg\Classes\SweetApi\Classes\HtmxRequest;
+use Fuzzy\Fzpkg\Traits\ViewContextTrait;
 
 class NavBar extends Component
 {
     use JsonObjectTrait;
+    use ViewContextTrait;
 
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(array $viewContext = [])
     {
-        //
+        $this->initFromViewContext($viewContext, 'MAIN-NAV-BAR');
     }
 
     // --- HTMX
 
-    public function getNavBarHtmx(Request $request)
+    public function getNavBarHtmx(HtmxRequest $request)
     {
         return view('components.commons.nav-bar');
     }

@@ -5,17 +5,17 @@ namespace App\Console\Commands;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Console\ViewMakeCommand;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Process\Process;
-use RuntimeException;
-use Fuzzy\Fzpkg\FzpkgServiceProvider;
+use Fuzzy\Fzpkg\Traits\SelectThemeTrait;
 
 class ThemeNewViewCommand extends ViewMakeCommand
 {
-    protected $signature = 'theme:new:view {name}';
+    use SelectThemeTrait;
 
-    protected $description = 'Create a new theme view';
+    protected $signature = 'make:view {name : The name of the view}';
 
-    protected $type = 'Theme View';
+    protected $description = 'Create a new theme\'s view';
+
+    protected $type = 'View';
 
     private $themeName;
 
@@ -60,51 +60,10 @@ class ThemeNewViewCommand extends ViewMakeCommand
         }
 
         if (is_null($this->themeName)) {
-            if (config('app.env') === 'production') {
-                $themes = FzpkgServiceProvider::getEnabledThemes();
-            }
-            else {
-                $themes = FzpkgServiceProvider::getAvailableThemes();
-            }
-
-            if (count($themes) === 1) {
-                $this->themeName = $themes[0];
-            }
-            else {
-                $this->themeName = $this->choice('Theme selection?',
-                    $themes,
-                    0,
-                    3
-                );
-            }
+            $this->themeName = $this->selectTheme();
         }
 
         parent::handle();
-    }
-
-    /**
-     * https://github.com/laravel/breeze/blob/2.x/src/Console/InstallCommand.php
-     * 
-     * Run the given commands.
-     *
-     * @param  array  $commands
-     * @return void
-     */
-    protected function runCommands($commands)
-    {
-        $process = Process::fromShellCommandline(implode(' && ', $commands), null, null, null, null);
-
-        if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
-            try {
-                $process->setTty(true);
-            } catch (RuntimeException $e) {
-                $this->output->writeln('  <bg=yellow;fg=black> WARN </> '.$e->getMessage().PHP_EOL);
-            }
-        }
-
-        $process->run(function ($type, $line) {
-            $this->output->write('    '.$line);
-        });
     }
 }
 

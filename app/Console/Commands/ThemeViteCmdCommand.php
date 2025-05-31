@@ -4,12 +4,14 @@ namespace App\Console\Commands;
 
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
-use Fuzzy\Fzpkg\FzpkgServiceProvider;
 use Fuzzy\Fzpkg\Console\Commands\BaseCommand;
+use Fuzzy\Fzpkg\Traits\SelectThemeTrait;
 
-class ThemeRunCmdCommand extends BaseCommand
+class ThemeViteCmdCommand extends BaseCommand
 {
-    protected $signature = 'theme:run:cmd { cmd : [dev|build] - "dev" = Run vite.js "server" - "build" = Run vite.js "build" } { --theme= : The theme name } { --hostname=127.0.0.1 : The hostname for "server" } { --port=8989 : The port number for "server" }';
+    use SelectThemeTrait;
+    
+    protected $signature = 'theme:vite:cmd { cmd : [dev|build] - "dev" = Run vite.js "server" - "build" = Run vite.js "build" } { --theme= : The theme name } { --hostname=127.0.0.1 : The hostname for "server" } { --port=8989 : The port number for "server" }';
 
     protected $description = 'Run "vite.js" for the theme';
 
@@ -46,23 +48,7 @@ class ThemeRunCmdCommand extends BaseCommand
         }
 
         if (is_null($this->themeName)) {
-            if (config('app.env') === 'production') {
-                $themes = FzpkgServiceProvider::getEnabledThemes();
-            }
-            else {
-                $themes = FzpkgServiceProvider::getAvailableThemes();
-            }
-
-            if (count($themes) === 1) {
-                $this->themeName = $themes[0];
-            }
-            else {
-                $this->themeName = $this->choice('Theme selection?',
-                    $themes,
-                    0,
-                    3
-                );
-            }
+            $this->themeName = $this->selectTheme();
         }
 
         $hostname = $this->option('hostname');
